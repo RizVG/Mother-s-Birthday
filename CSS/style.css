@@ -1,0 +1,575 @@
+:root {
+  --ink: #1c0f2b;
+  --plum: #2e1646;
+  --hibiscus: #ff4f8b;
+  --marigold: #ffb627;
+  --mint: #5eead4;
+  --paper: #fff4f8;
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --body: 'Figtree', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: radial-gradient(60rem 40rem at 85% -10%, #5a1d6e55, transparent), radial-gradient(40rem 30rem at -10% 60%, #ff4f8b22, transparent)
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  max-width: 68rem;
+  margin: auto;
+  padding: 0 max(1.5rem, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(1.5rem, env(safe-area-inset-left))
+}
+
+:focus-visible {
+  outline: 3px solid var(--mint);
+  outline-offset: 3px
+}
+
+/* hero */
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 4rem 0
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  line-height: .95;
+  letter-spacing: -.03em
+}
+
+h1 .w {
+  display: inline-block;
+  white-space: nowrap
+}
+
+h1 .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60%) rotate(8deg)
+}
+
+body.go h1 .ch {
+  animation: pop .7s cubic-bezier(.2, 1.4, .4, 1) forwards
+}
+
+h1 .ch:nth-last-child(-n+5) {
+  color: var(--marigold)
+}
+
+@keyframes pop {
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+.lead {
+  margin-top: 1.5rem;
+  max-width: 30ch;
+  font-size: 1.2rem;
+  color: #f3d6e6
+}
+
+/* player */
+.player {
+  position: relative;
+  justify-self: center;
+  width: min(22rem, 80vw);
+  text-align: center
+}
+
+.disc {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.4rem;
+  color: var(--ink);
+  background: radial-gradient(circle, var(--marigold) 0 14%, #0000 15%), repeating-radial-gradient(circle, #2a123d 0 3px, #150a20 3px 6px);
+  box-shadow: 0 0 0 .6rem #ffffff12, 0 2rem 4rem #0008, 0 0 5rem #ff4f8b44;
+  animation: spin 6s linear infinite paused
+}
+
+.disc i {
+  position: relative;
+  z-index: 1;
+  color: var(--hibiscus);
+  text-shadow: 0 0 0 var(--ink)
+}
+
+.disc.playing {
+  animation-play-state: running
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.vinyl {
+  position: relative
+}
+
+.play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--hibiscus);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 .8rem 2rem #ff4f8b66;
+  transition: transform .2s
+}
+
+.play:hover {
+  transform: scale(1.1)
+}
+
+.track {
+  margin-top: 1.6rem;
+  font-family: var(--display)
+}
+
+.bar {
+  margin-top: .6rem;
+  height: .4rem;
+  background: #ffffff1f;
+  border-radius: 1rem;
+  overflow: hidden
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--hibiscus), var(--marigold))
+}
+
+/* notes */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 4rem 0;
+  align-items: start
+}
+
+.note {
+  padding: 2rem;
+  transition: transform .3s
+}
+
+.note i {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: block
+}
+
+.note h2 {
+  font-family: var(--display);
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin-bottom: .6rem
+}
+
+.n1 {
+  background: var(--marigold);
+  color: var(--ink);
+  border-radius: 2rem 2rem 2rem .4rem;
+  rotate: -2deg
+}
+
+.n2 {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 50% 50% 2rem 2rem / 22% 22% 2rem 2rem;
+  margin-top: 2.5rem;
+  rotate: 1.5deg;
+  padding-top: 3rem
+}
+
+.n3 {
+  background: var(--hibiscus);
+  color: #fff;
+  border-radius: .4rem 2rem 2rem 2rem;
+  rotate: -1deg
+}
+
+.n1 i {
+  color: var(--hibiscus)
+}
+
+.n2 i {
+  color: var(--hibiscus)
+}
+
+.n3 i {
+  color: var(--marigold)
+}
+
+.note:hover {
+  transform: translateY(-.5rem) rotate(0)
+}
+
+/* cake */
+.wish {
+  text-align: center;
+  padding: 3rem 0 5rem
+}
+
+.cake {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  margin: 0 auto 2rem
+}
+
+.cake div {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0
+}
+
+.plate {
+  bottom: 0;
+  width: 15rem;
+  height: .9rem;
+  background: #ffffff33;
+  border-radius: 1rem
+}
+
+.tier {
+  border-radius: 1rem 1rem .3rem .3rem
+}
+
+.t1 {
+  bottom: .9rem;
+  width: 13rem;
+  height: 4.5rem;
+  background: var(--hibiscus);
+  box-shadow: inset 0 1rem 0 var(--paper)
+}
+
+.t2 {
+  bottom: 5.4rem;
+  width: 9rem;
+  height: 4rem;
+  background: var(--mint);
+  box-shadow: inset 0 .9rem 0 var(--paper)
+}
+
+.candle {
+  bottom: 9.4rem;
+  width: .7rem;
+  height: 2.6rem;
+  background: repeating-linear-gradient(45deg, var(--marigold) 0 .4rem, #fff .4rem .8rem);
+  border-radius: .3rem
+}
+
+.flame {
+  bottom: 12rem;
+  width: 1rem;
+  height: 1.6rem;
+  background: radial-gradient(circle at 50% 70%, #fff, var(--marigold) 55%, #ff7a18);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  animation: flick .5s ease-in-out infinite alternate;
+  transform-origin: 50% 100%;
+  transition: opacity .4s, scale .4s
+}
+
+.flame.out {
+  opacity: 0;
+  scale: .2
+}
+
+@keyframes flick {
+  from {
+    transform: scaleY(1) rotate(-3deg)
+  }
+
+  to {
+    transform: scaleY(1.15) rotate(3deg)
+  }
+}
+
+.cta {
+  font: 800 1.1rem var(--display);
+  padding: 1rem 1.8rem;
+  border: 0;
+  border-radius: 3rem;
+  background: var(--marigold);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 .5rem 0 #b57d00;
+  transition: transform .15s, box-shadow .15s
+}
+
+.cta:hover {
+  transform: translateY(-2px)
+}
+
+.cta:active {
+  transform: translateY(4px);
+  box-shadow: 0 .1rem 0 #b57d00
+}
+
+.wish-msg {
+  margin-top: 1.5rem;
+  font: 800 clamp(1.4rem, 3vw, 2rem) var(--display);
+  min-height: 2.4rem;
+  color: var(--mint)
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  color: #f3d6e6
+}
+
+footer i {
+  color: var(--hibiscus)
+}
+
+.small {
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-size: 2.2rem;      /* script fonts look small, so make it bigger */
+  text-align: center;
+  text-transform: none;   /* remove uppercase */
+  letter-spacing: 0;
+  margin-top: -80px;
+  color: #FFCED8;
+}
+
+/* floaters + confetti */
+.floaters {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden
+}
+
+.floaters i {
+  position: absolute;
+  bottom: -3rem;
+  opacity: .5;
+  animation: rise linear forwards
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-115vh) rotate(40deg);
+    opacity: 0
+  }
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  width: 100%;
+  height: 100%
+}
+
+@media (max-width:800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 3rem
+  }
+
+  .notes {
+    grid-template-columns: 1fr
+  }
+
+  .n2 {
+    margin-top: 0
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  * {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important
+  }
+
+  .floaters {
+    display: none
+  }
+}
+
+/* gate: opens the page and starts the song with one tap */
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at 50% 40%, var(--plum), var(--ink));
+  transition: opacity .6s, visibility .6s
+}
+
+.gate.open {
+  opacity: 0;
+  visibility: hidden
+}
+
+.gate-btn {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: center;
+  background: none;
+  border: 0;
+  color: var(--paper);
+  font: 800 clamp(1.4rem, 6vw, 2rem)/1.2 var(--display);
+  text-align: center;
+  cursor: pointer;
+  max-width: 16rem
+}
+
+.gate-btn i {
+  font-size: 5rem;
+  color: var(--marigold);
+  animation: bob 1.6s ease-in-out infinite
+}
+
+.gate-btn:active i {
+  transform: scale(.9)
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-.8rem) rotate(-6deg)
+  }
+}
+
+/* mobile version */
+@media (max-width:800px) {
+  .hero {
+    gap: 2rem;
+    padding: 2.5rem 0 1rem;
+    text-align: center
+  }
+
+  .lead {
+    margin-inline: auto;
+    font-size: 1.1rem
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem)
+  }
+
+  .player {
+    width: min(16rem, 70vw)
+  }
+
+  .play {
+    width: 4.6rem;
+    height: 4.6rem
+  }
+
+  .notes {
+    padding: 2rem 0;
+    gap: 1.2rem
+  }
+
+  .note {
+    padding: 1.5rem;
+    rotate: 0deg !important
+  }
+
+  .note h2 {
+    font-size: 1.4rem
+  }
+
+  .cake {
+    transform: scale(.9)
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 20rem;
+    padding: 1.1rem
+  }
+}
+
+.poem-btn {
+  display: block;
+  margin: 0;
+  padding: .9rem 1.6rem;
+  border: 0;
+  border-radius: 3rem;
+  background: #ff4f8b;
+  color: #fff;
+  font: 800 1rem 'Bricolage Grotesque', sans-serif;
+  cursor: pointer;
+}
+.poem {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  text-align: center;
+  scroll-margin-top: 1rem;
+}
+.poem h2 {
+  font: 800 2.2rem 'Bricolage Grotesque', sans-serif;
+  margin-bottom: 2rem;
+  color: #ffb627;
+}
+.poem .line {
+  font-size: 1.2rem;
+  line-height: 2;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .8s, transform .8s;
+}
+.poem .line.show { opacity: 1; transform: none; }
+.poem .sign { margin-top: 2rem; color: #ffced8; }
+
+.poem-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;          /* space between the label and the button */
+  margin: 2rem auto;
+}
+.for-you {
+  font-family: 'Mrs Saint Delafield', cursive;  /* the signature font from before */
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #ffced8;
+}
+

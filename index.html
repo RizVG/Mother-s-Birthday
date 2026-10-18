@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1c0f2b">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday, Mom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Figtree:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS\style.css">
+  <link rel="icon" type="image/svg+xml" href="image\favicon.svg">
+</head>
+
+<body>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <div class="gate" id="gate">
+    <button class="gate-btn" id="openBtn">
+      <i class="fa-solid fa-gift"></i>
+      <span>Tap to open your birthday surprise</span>
+    </button>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1 id="title" aria-label="Happy birthday, Mom.">Happy birthday, Mom.</h1>
+        <p class="lead">Press play, make a wish, and read what we couldn’t say out loud.</p>
+      </div>
+
+      <div class="player">
+        <div class="vinyl">
+          <div class="disc" id="disc">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <button class="play" id="playBtn" aria-label="Play song">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </div>
+
+        <div class="track">
+          <strong id="trackName">Lovers’ Oath</strong>
+          <div class="bar"><span id="progress"></span></div>
+        </div>
+        <audio id="song" playsinline preload="auto"></audio>
+
+      </div>
+    </section>
+
+    <section class="notes">
+      <article class="note n1">
+        <i class="fa-solid fa-sun"></i>
+        <h2>You are the strongest person I know.</h2>
+        <p>Everything good in me, I learned by watching you. </p>
+      </article>
+      <article class="note n2">
+        <i class="fa-solid fa-seedling"></i>
+        <h2>You taught us how to grow</h2>
+        <p>Patience, kindness and courage. I learned all from watching you.</p>
+      </article>
+      <article class="note n3">
+        <i class="fa-solid fa-hands-holding-heart"></i>
+        <h2>Today, I just want you to rest, smile, and be spoiled</h2>
+        <p>because you give so much and deserve so much more.</p>
+      </article>
+    </section>
+
+
+
+    <section class="wish">
+      <div class="cake" id="cake">
+        <div class="flame" id="flame"></div>
+        <div class="candle"></div>
+        <div class="tier t1"></div>
+        <div class="tier t2"></div>
+        <div class="plate"></div>
+      </div>
+      <button class="cta" id="wishBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Make a wish</button>
+      <p class="wish-msg" id="wishMsg" aria-live="polite"></p>
+    </section>
+
+
+    <div class="poem-cta">
+      <span class="for-you">For you</span>
+      <button class="poem-btn" id="poemBtn">
+        <i class="fa-solid fa-feather-pointed"></i> Read your poem
+      </button>
+    </div>
+
+    <section class="poem" id="poem">
+      <p class="line">You held the world together with your hands,</p>
+      <p class="line">and never asked the world to notice.</p>
+      <p class="line">Every quiet sacrifice became a lamp</p>
+      <p class="line">that lit the road I'm walking on.</p>
+      <p class="line">If I am kind, it's because you were.</p>
+      <p class="line">If I am brave, you taught me how.</p>
+      <p class="line">Today the world can notice you,</p>
+      <p class="line">and I will say it out loud: <b style="color: #ff4f8b;">thank you.</b></p>
+      <p class="line">Happy birthday My mom, <b style="color: #ff4f8b;">Zawiyah</b><i class="fa-solid fa-heart"></i></p>
+    </section>
+
+
+    <footer>With all the love from your son, today and always <i class="fa-solid fa-heart"></i></footer>
+    <footer class="small">Rizuan </footer>
+  </main>
+
+  <script src="JS\script.js"></script>
+</body>
+
+</html>
